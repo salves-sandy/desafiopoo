@@ -1,0 +1,120 @@
+import java.util.ArrayList;
+import java.util.List;
+
+// Classe Bootcamp
+public class Bootcamp {
+    private String nome;
+    private String dataInicio;
+    private String dataFim;
+    private List<Curso> listaCursos;
+    private List<Mentoria> listaMentorias;
+    private List<Dev> listaDevs;
+
+    public Bootcamp(String nome, String dataInicio, String dataFim) {
+        this.nome = nome;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.listaCursos = new ArrayList<>();
+        this.listaMentorias = new ArrayList<>();
+        this.listaDevs = new ArrayList<>();
+    }
+
+    public void adicionarCurso(Curso curso) {
+        listaCursos.add(curso);
+    }
+
+    public void adicionarMentoria(Mentoria mentoria) {
+        listaMentorias.add(mentoria);
+    }
+
+    public void adicionarDev(Dev dev) {
+        listaDevs.add(dev);
+    }
+
+    public void iniciarBootcamp() {
+        // Lógica para iniciar o bootcamp
+    }
+
+    public void finalizarBootcamp() {
+        // Lógica para finalizar o bootcamp
+    }
+}
+
+// Classe Curso
+public class Curso {
+    private String nome;
+    private int cargaHoraria;
+    private String descricao;
+    private List<Dev> listaDevsInscritos;
+
+    public Curso(String nome, int cargaHoraria, String descricao) {
+        this.nome = nome;
+        this.cargaHoraria = cargaHoraria;
+        this.descricao = descricao;
+        this.listaDevsInscritos = new ArrayList<>();
+    }
+
+    public void inscreverDev(Dev dev) {
+        listaDevsInscritos.add(dev);
+    }
+}
+
+// Classe Mentoria
+public class Mentoria {
+    private String tema;
+    private String data;
+    private int duracao;
+    private Dev mentor;
+    private List<Dev> listaDevsParticipantes;
+
+    public Mentoria(String tema, String data, int duracao, Dev mentor) {
+        this.tema = tema;
+        this.data = data;
+        this.duracao = duracao;
+        this.mentor = mentor;
+        this.listaDevsParticipantes = new ArrayList<>();
+    }
+
+    public void inscreverDev(Dev dev) {
+        listaDevsParticipantes.add(dev);
+    }
+}
+
+// Classe Dev
+public class Dev {
+    private String nome;
+    private String email;
+    private int nivel;
+    private List<Curso> listaCursosConcluidos;
+    private List<Mentoria> listaMentoriasParticipadas;
+
+    public Dev(String nome, String email, int nivel) {
+        this.nome = nome;
+        this.email = email;
+        this.nivel = nivel;
+        this.listaCursosConcluidos = new ArrayList<>();
+        this.listaMentoriasParticipadas = new ArrayList<>();
+    }
+}
+
+// Classe Principal (para testar o código)
+public class Main {
+    public static void main(String[] args) {
+        // Criar um Bootcamp
+        Bootcamp bootcampJava = new Bootcamp("Bootcamp de Java", "01/07/2024", "01/09/2024");
+
+        // Criar um Curso
+        Curso cursoJavaBasico = new Curso("Java Básico", 40, "Introdução à programação em Java");
+
+        // Criar uma Mentoria
+        Mentoria mentoriaJavaAvancado = new Mentoria("Java Avançado", "15/07/2024", 60, new Dev("Mentor", "mentor@example.com", 3));
+
+        // Criar um Dev
+        Dev dev1 = new Dev("Dev1", "dev1@example.com", 2);
+
+        // Adicionar Curso, Mentoria e Dev ao Bootcamp
+        bootcampJava.adicionarCurso(cursoJavaBasico);
+        bootcampJava.adicionarMentoria(mentoriaJavaAvancado);
+        bootcampJava.adicionarDev(dev1);
+    }
+}
